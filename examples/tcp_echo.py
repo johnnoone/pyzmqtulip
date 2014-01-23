@@ -2,7 +2,10 @@
 """TCP echo server example."""
 import argparse
 import signal
-import tulip
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
 import zmqtulip
 
 

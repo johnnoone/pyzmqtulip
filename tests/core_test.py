@@ -1,5 +1,8 @@
 """tests for core.py"""
-import tulip
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
 import unittest
 import unittest.mock
 import zmq

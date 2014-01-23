@@ -13,8 +13,11 @@ except ImportError:  # pragma: no cover
 
 assert sys.version >= '3.3', 'Please use Python 3.3 or higher.'
 
-import tulip
-import tulip.http
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
+    import tulip.http
 
 
 class HttpServer(tulip.http.ServerHttpProtocol):

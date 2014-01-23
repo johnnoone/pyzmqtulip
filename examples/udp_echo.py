@@ -3,7 +3,10 @@
 import argparse
 import sys
 import signal
-import tulip
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
 import zmqtulip
 
 

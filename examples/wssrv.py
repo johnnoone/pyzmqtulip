@@ -7,9 +7,13 @@ import socket
 import signal
 import time
 import zmqtulip
-import tulip
-import tulip.http
-from tulip.http import websocket
+try:
+    import asyncio as tulip
+    from asyncio.http import websocket
+except ImportError:
+    import tulip
+    import tulip.http
+    from tulip.http import websocket
 
 ARGS = argparse.ArgumentParser(description="Run simple http server.")
 ARGS.add_argument(

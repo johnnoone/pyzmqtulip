@@ -21,15 +21,24 @@ import unittest
 import unittest.mock
 from test.support import find_unused_port
 
-
-from tulip import futures
-from tulip import events
-from tulip import transports
-from tulip import protocols
-from tulip import selector_events
-from tulip import tasks
-from tulip import test_utils
-from tulip import locks
+try:
+    from asyncio import futures
+    from asyncio import events
+    from asyncio import transports
+    from asyncio import protocols
+    from asyncio import selector_events
+    from asyncio import tasks
+    from asyncio import test_utils
+    from asyncio import locks
+except ImportError:
+    from tulip import futures
+    from tulip import events
+    from tulip import transports
+    from tulip import protocols
+    from tulip import selector_events
+    from tulip import tasks
+    from tulip import test_utils
+    from tulip import locks
 
 
 class MyProto(protocols.Protocol):

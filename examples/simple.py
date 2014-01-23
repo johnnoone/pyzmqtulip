@@ -1,4 +1,7 @@
-import tulip
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
 import zmq
 import zmqtulip
 
@@ -42,7 +45,7 @@ def get_objs(sock):
 def print_every(s, t=None):
     idx = 1
     while 1:
-        print('%s: %s'%(idx, s))
+        print('%s: %s' % (idx, s))
         yield from tulip.sleep(t)
         idx += 1
 

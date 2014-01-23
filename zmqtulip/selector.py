@@ -2,7 +2,11 @@
 __all__ = ['ZmqSelector']
 import zmq
 from zmq import ZMQError, POLLIN, POLLOUT, POLLERR
-from tulip.selectors import BaseSelector, EVENT_READ, EVENT_WRITE
+try:
+    from asyncio.selectors import BaseSelector, EVENT_READ, EVENT_WRITE
+except ImportError:
+    from tulip.selectors import BaseSelector, EVENT_READ, EVENT_WRITE
+
 
 EVENT_ALL = EVENT_READ | EVENT_WRITE
 

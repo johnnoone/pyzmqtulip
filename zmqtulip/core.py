@@ -4,8 +4,12 @@ __all__ = ['Socket', 'Context']
 import collections
 import functools
 import pickle
-import tulip
 import zmq
+
+try:
+    import asyncio as tulip
+except ImportError:
+    import tulip
 
 
 class Socket(zmq.Socket):
